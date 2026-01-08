@@ -7,17 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           RESET & BASE STYLES
-           ============================================ */
-        
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         :root {
@@ -27,680 +22,69 @@
             --secondary-color: #7209b7;
             --accent-color: #f72585;
             --success-color: #4ade80;
-            --success-dark: #22c55e;
             --warning-color: #f59e0b;
             --danger-color: #ef4444;
-            --info-color: #3b82f6;
             --dark-color: #1e293b;
-            --darker-color: #0f172a;
             --light-color: #f8fafc;
             --gray-color: #64748b;
-            --gray-light: #e2e8f0;
-            --gray-dark: #475569;
             --border-color: #cbd5e1;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
-            --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.2);
-            --radius-sm: 4px;
             --radius-md: 8px;
             --radius-lg: 12px;
-            --radius-xl: 16px;
-            --radius-2xl: 20px;
-            --transition-fast: 150ms ease;
             --transition-normal: 300ms ease;
-            --transition-slow: 500ms ease;
             --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
-            --gradient-secondary: linear-gradient(135deg, #7209b7 0%, #3a0ca3 100%);
-            --gradient-accent: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
             --gradient-success: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            --gradient-light: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            --gradient-rainbow: linear-gradient(90deg, #4361ee, #3a0ca3, #7209b7, #b5179e, #f72585);
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            overflow-x: hidden;
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
             color: var(--dark-color);
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: var(--light-color);
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(114, 9, 183, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(247, 37, 133, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', 'Inter', sans-serif;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: var(--darker-color);
-        }
-
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 2rem; }
-        h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.25rem; }
-        h6 { font-size: 1rem; }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--gray-dark);
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-
-        a:hover {
-            color: var(--primary-dark);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        ul, ol {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        button {
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            transition: all var(--transition-normal);
-        }
-
-        input, textarea, select {
-            font-family: 'Inter', sans-serif;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            transition: all var(--transition-fast);
-            background: white;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        /* ============================================
-           UTILITY CLASSES
-           ============================================ */
 
         .container {
-            width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        .container-fluid {
-            width: 100%;
-            padding: 0 2rem;
-        }
-
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-        
-        .text-primary { color: var(--primary-color); }
-        .text-secondary { color: var(--secondary-color); }
-        .text-success { color: var(--success-color); }
-        .text-warning { color: var(--warning-color); }
-        .text-danger { color: var(--danger-color); }
-        .text-info { color: var(--info-color); }
-        .text-dark { color: var(--dark-color); }
-        .text-light { color: var(--light-color); }
-        .text-gray { color: var(--gray-color); }
-        
-        .bg-primary { background: var(--primary-color); }
-        .bg-secondary { background: var(--secondary-color); }
-        .bg-success { background: var(--success-color); }
-        .bg-warning { background: var(--warning-color); }
-        .bg-danger { background: var(--danger-color); }
-        .bg-dark { background: var(--dark-color); }
-        .bg-light { background: var(--light-color); }
-        
-        .gradient-primary { background: var(--gradient-primary); }
-        .gradient-secondary { background: var(--gradient-secondary); }
-        .gradient-success { background: var(--gradient-success); }
-        .gradient-warning { background: var(--gradient-warning); }
-        .gradient-danger { background: var(--gradient-danger); }
-        .gradient-dark { background: var(--gradient-dark); }
-        
-        .d-none { display: none !important; }
-        .d-block { display: block !important; }
-        .d-inline { display: inline !important; }
-        .d-inline-block { display: inline-block !important; }
-        .d-flex { display: flex !important; }
-        .d-grid { display: grid !important; }
-        
-        .flex-column { flex-direction: column; }
-        .flex-row { flex-direction: row; }
-        .flex-wrap { flex-wrap: wrap; }
-        .flex-nowrap { flex-wrap: nowrap; }
-        .justify-start { justify-content: flex-start; }
-        .justify-center { justify-content: center; }
-        .justify-end { justify-content: flex-end; }
-        .justify-between { justify-content: space-between; }
-        .justify-around { justify-content: space-around; }
-        .align-start { align-items: flex-start; }
-        .align-center { align-items: center; }
-        .align-end { align-items: flex-end; }
-        .align-stretch { align-items: stretch; }
-        
-        .w-100 { width: 100%; }
-        .h-100 { height: 100%; }
-        .mw-100 { max-width: 100%; }
-        .mh-100 { max-height: 100%; }
-        
-        .m-0 { margin: 0; }
-        .m-1 { margin: 0.25rem; }
-        .m-2 { margin: 0.5rem; }
-        .m-3 { margin: 1rem; }
-        .m-4 { margin: 1.5rem; }
-        .m-5 { margin: 2rem; }
-        
-        .p-0 { padding: 0; }
-        .p-1 { padding: 0.25rem; }
-        .p-2 { padding: 0.5rem; }
-        .p-3 { padding: 1rem; }
-        .p-4 { padding: 1.5rem; }
-        .p-5 { padding: 2rem; }
-        
-        .position-relative { position: relative; }
-        .position-absolute { position: absolute; }
-        .position-fixed { position: fixed; }
-        .position-sticky { position: sticky; }
-        
-        .overflow-hidden { overflow: hidden; }
-        .overflow-auto { overflow: auto; }
-        .overflow-x-auto { overflow-x: auto; }
-        .overflow-y-auto { overflow-y: auto; }
-        
-        .shadow-none { box-shadow: none; }
-        .shadow-sm { box-shadow: var(--shadow-sm); }
-        .shadow-md { box-shadow: var(--shadow-md); }
-        .shadow-lg { box-shadow: var(--shadow-lg); }
-        .shadow-xl { box-shadow: var(--shadow-xl); }
-        .shadow-2xl { box-shadow: var(--shadow-2xl); }
-        
-        .rounded-sm { border-radius: var(--radius-sm); }
-        .rounded-md { border-radius: var(--radius-md); }
-        .rounded-lg { border-radius: var(--radius-lg); }
-        .rounded-xl { border-radius: var(--radius-xl); }
-        .rounded-2xl { border-radius: var(--radius-2xl); }
-        .rounded-full { border-radius: 9999px; }
-        
-        .cursor-pointer { cursor: pointer; }
-        .cursor-default { cursor: default; }
-        .cursor-not-allowed { cursor: not-allowed; }
-        
-        .opacity-0 { opacity: 0; }
-        .opacity-25 { opacity: 0.25; }
-        .opacity-50 { opacity: 0.5; }
-        .opacity-75 { opacity: 0.75; }
-        .opacity-100 { opacity: 1; }
-        
-        .z-0 { z-index: 0; }
-        .z-10 { z-index: 10; }
-        .z-20 { z-index: 20; }
-        .z-30 { z-index: 30; }
-        .z-40 { z-index: 40; }
-        .z-50 { z-index: 50; }
-        .z-auto { z-index: auto; }
-        
-        .transition-all { transition: all var(--transition-normal); }
-        .transition-colors { transition: color var(--transition-normal), background-color var(--transition-normal); }
-        .transition-transform { transition: transform var(--transition-normal); }
-        .transition-opacity { transition: opacity var(--transition-normal); }
-        
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .animate-slide-in {
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* ============================================
-           BUTTONS
-           ============================================ */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            font-size: 1rem;
-            font-weight: 600;
-            line-height: 1.5;
-            text-align: center;
-            text-decoration: none;
-            white-space: nowrap;
-            vertical-align: middle;
-            cursor: pointer;
-            user-select: none;
-            border: 2px solid transparent;
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-secondary {
-            background: var(--gradient-secondary);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(114, 9, 183, 0.3);
-        }
-
-        .btn-success {
-            background: var(--gradient-success);
-            color: white;
-        }
-
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.3);
-        }
-
-        .btn-danger {
-            background: var(--gradient-danger);
-            color: white;
-        }
-
-        .btn-danger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
-        }
-
-        .btn-warning {
-            background: var(--gradient-warning);
-            color: white;
-        }
-
-        .btn-warning:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--border-color);
-            color: var(--dark-color);
-        }
-
-        .btn-outline:hover {
-            background: var(--light-color);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline-primary {
-            background: transparent;
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline-primary:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-sm {
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-        }
-
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
-        }
-
-        .btn-xl {
-            padding: 1.25rem 2.5rem;
-            font-size: 1.25rem;
-        }
-
-        .btn-block {
-            width: 100%;
-            display: flex;
-        }
-
-        .btn-icon {
-            padding: 0.75rem;
-            border-radius: var(--radius-md);
-        }
-
-        .btn-icon i {
-            font-size: 1.25rem;
-        }
-
-        .btn-loading {
-            position: relative;
-            color: transparent !important;
-        }
-
-        .btn-loading::after {
-            content: '';
-            position: absolute;
-            width: 1rem;
-            height: 1rem;
-            border: 2px solid currentColor;
-            border-radius: 50%;
-            border-right-color: transparent;
-            animation: spin 0.75s linear infinite;
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        .btn-group {
-            display: inline-flex;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .btn-group .btn {
-            border-radius: 0;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-group .btn:first-child {
-            border-top-left-radius: var(--radius-lg);
-            border-bottom-left-radius: var(--radius-lg);
-        }
-
-        .btn-group .btn:last-child {
-            border-top-right-radius: var(--radius-lg);
-            border-bottom-right-radius: var(--radius-lg);
-            border-right: none;
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-
+        /* Header */
         .main-header {
-            position: fixed;
+            background: white;
+            box-shadow: var(--shadow-md);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(203, 213, 225, 0.3);
             z-index: 1000;
-            transition: all var(--transition-normal);
-        }
-
-        .main-header.scrolled {
-            box-shadow: var(--shadow-lg);
-            background: rgba(255, 255, 255, 0.98);
         }
 
         .header-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            height: 80px;
+            align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.75rem;
-            font-weight: 800;
-            background: var(--gradient-rainbow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
             font-size: 1.5rem;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            color: var(--dark-color);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            border-radius: 3px;
-            transition: width var(--transition-normal);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
+            font-weight: 800;
             color: var(--primary-color);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            cursor: pointer;
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-
-        .hero {
-            padding: 160px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-rainbow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-dark);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-actions {
+            text-decoration: none;
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
+            align-items: center;
+            gap: 10px;
         }
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 4rem;
+        .logo i {
+            font-size: 1.8rem;
         }
 
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--gray-color);
-            font-weight: 500;
-        }
-
-        /* ============================================
-           TOOLS CATEGORIES
-           ============================================ */
-
-        .section {
-            padding: 100px 0;
+        /* Tool Categories */
+        .tool-categories {
+            padding: 4rem 0;
+            background: white;
         }
 
         .section-title {
@@ -709,106 +93,57 @@
         }
 
         .section-title h2 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            font-size: 1.125rem;
-            color: var(--gray-color);
-            max-width: 600px;
-            margin: 0 auto;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .category-card {
             background: white;
-            border-radius: var(--radius-xl);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(203, 213, 225, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-normal);
+            border: 2px solid transparent;
         }
 
         .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
         }
 
         .category-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            border-radius: var(--radius-lg);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .category-card:nth-child(1) .category-icon {
-            background: var(--gradient-primary);
-        }
-
-        .category-card:nth-child(2) .category-icon {
-            background: var(--gradient-secondary);
-        }
-
-        .category-card:nth-child(3) .category-icon {
-            background: var(--gradient-success);
-        }
-
-        .category-card:nth-child(4) .category-icon {
-            background: var(--gradient-warning);
-        }
-
-        .category-card:nth-child(5) .category-icon {
-            background: var(--gradient-danger);
-        }
-
-        .category-card:nth-child(6) .category-icon {
-            background: var(--gradient-accent);
-        }
-
-        .category-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
         }
 
-        .category-card p {
-            color: var(--gray-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .category-count {
-            display: inline-block;
+        /* Tools Container */
+        .tools-container {
+            padding: 4rem 0;
             background: var(--light-color);
-            color: var(--primary-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 600;
         }
-
-        /* ============================================
-           FEATURED TOOLS
-           ============================================ */
 
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .tool-card {
@@ -817,12 +152,11 @@
             padding: 1.5rem;
             box-shadow: var(--shadow-md);
             transition: all var(--transition-normal);
-            border: 1px solid var(--border-color);
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
 
         .tool-icon {
@@ -834,522 +168,797 @@
             justify-content: center;
             margin-bottom: 1rem;
             color: white;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
 
-        .tool-card h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tool-card p {
-            font-size: 0.875rem;
-            color: var(--gray-color);
-            margin-bottom: 1rem;
-        }
-
-        .tool-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .tool-tag {
-            background: var(--light-color);
-            color: var(--gray-dark);
-            padding: 0.25rem 0.5rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-
-        .footer {
-            background: var(--gradient-dark);
-            color: white;
-            padding: 80px 0 40px;
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h3 {
-            color: white;
+        .tool-content {
             margin-bottom: 1.5rem;
-            font-size: 1.25rem;
         }
 
-        .footer-links {
-            list-style: none;
-            padding: 0;
+        .tool-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
         }
 
-        .footer-links li {
-            margin-bottom: 0.75rem;
+        .tool-content p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: color var(--transition-fast);
+        /* Tool Specific Styles */
+        .tool-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
         }
 
-        .footer-links a:hover {
+        textarea, input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin-top: 10px;
+            min-height: 50px;
+            word-break: break-all;
+        }
+
+        .btn {
+            background: var(--gradient-primary);
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-
-        @media (max-width: 1024px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.25rem; }
-            .hero-title { font-size: 3rem; }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
-            
-            .mobile-menu-btn { display: block; }
-            
-            .main-nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all var(--transition-normal);
+            .categories-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
             }
             
-            .main-nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+            .section-title h2 {
+                font-size: 2rem;
             }
-            
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .stat-number { font-size: 2.5rem; }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .hero-title { font-size: 2.5rem; }
-            
-            .section { padding: 60px 0; }
-            
-            .btn-lg, .btn-xl {
-                padding: 0.875rem 1.75rem;
-                font-size: 1rem;
-            }
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="main-header" id="main-header">
+    <header class="main-header">
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <span>ToolKit</span>
+                    <i class="fas fa-tools"></i>
+                    <span>ToolKit Pro</span>
                 </a>
-                
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <nav class="main-nav" id="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="#home" class="nav-link">Home</a></li>
-                        <li><a href="#categories" class="nav-link">Categories</a></li>
-                        <li><a href="#tools" class="nav-link">All Tools</a></li>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
-                    <div class="nav-actions">
-                        <button class="btn btn-outline-primary btn-sm">
-                            <i class="fas fa-user"></i> Sign In
-                        </button>
-                    </div>
-                </nav>
+                <div class="nav-links">
+                    <a href="#tools" class="btn btn-outline">Browse Tools</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-fade-in">
-                    5000+ Free Online Tools
-                </h1>
-                <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.2s;">
-                    The most comprehensive collection of free online tools for files, documents, images, videos, and more.
-                    No registration required. Completely free forever.
-                </p>
-                
-                <div class="hero-actions animate-fade-in" style="animation-delay: 0.4s;">
-                    <button class="btn btn-primary btn-xl">
-                        <i class="fas fa-rocket"></i> Explore Tools
-                    </button>
-                    <button class="btn btn-outline btn-xl">
-                        <i class="fas fa-search"></i> Search Tools
-                    </button>
-                </div>
-                
-                <div class="hero-stats animate-fade-in" style="animation-delay: 0.6s;">
-                    <div class="stat-item">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label">Free Tools</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100+</div>
-                        <div class="stat-label">Categories</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">99.9%</div>
-                        <div class="stat-label">Uptime</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">0</div>
-                        <div class="stat-label">Registration</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Categories Section -->
-    <section class="section" id="categories">
+    <section class="tool-categories">
         <div class="container">
             <div class="section-title">
                 <h2>Tool Categories</h2>
-                <p>Browse tools by category. We have everything you need for all your file and document tasks.</p>
+                <p>Choose from our collection of useful online tools</p>
             </div>
-            
             <div class="categories-grid">
-                <!-- Category 1 -->
-                <div class="category-card animate-fade-in">
+                <div class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-font"></i>
                     </div>
-                    <h3>PDF Tools</h3>
-                    <p>Edit, convert, merge, split, compress, and optimize PDF files with our comprehensive toolkit.</p>
-                    <span class="category-count">150+ Tools</span>
+                    <h3>Text Tools</h3>
+                    <p>Text manipulation, conversion, and analysis tools</p>
                 </div>
-                
-                <!-- Category 2 -->
-                <div class="category-card animate-fade-in" style="animation-delay: 0.1s;">
+                <div class="category-card">
                     <div class="category-icon">
-                        <i class="fas fa-image"></i>
+                        <i class="fas fa-calculator"></i>
                     </div>
-                    <h3>Image Tools</h3>
-                    <p>Convert, resize, compress, edit, and enhance images. Support for all popular formats.</p>
-                    <span class="category-count">200+ Tools</span>
+                    <h3>Calculator</h3>
+                    <p>Mathematical and conversion calculators</p>
                 </div>
-                
-                <!-- Category 3 -->
-                <div class="category-card animate-fade-in" style="animation-delay: 0.2s;">
-                    <div class="category-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Video Tools</h3>
-                    <p>Convert, compress, edit, merge, and extract audio from video files. All formats supported.</p>
-                    <span class="category-count">120+ Tools</span>
-                </div>
-                
-                <!-- Category 4 -->
-                <div class="category-card animate-fade-in" style="animation-delay: 0.3s;">
-                    <div class="category-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Document Tools</h3>
-                    <p>Word, Excel, PowerPoint tools. Convert, edit, merge, and optimize documents.</p>
-                    <span class="category-count">180+ Tools</span>
-                </div>
-                
-                <!-- Category 5 -->
-                <div class="category-card animate-fade-in" style="animation-delay: 0.4s;">
-                    <div class="category-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3>Audio Tools</h3>
-                    <p>Convert, compress, edit, merge, and extract audio from various formats. MP3, WAV, AAC, etc.</p>
-                    <span class="category-count">90+ Tools</span>
-                </div>
-                
-                <!-- Category 6 -->
-                <div class="category-card animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Developer Tools</h3>
-                    <p>Code formatters, validators, converters, generators, and other essential developer tools.</p>
-                    <span class="category-count">250+ Tools</span>
+                    <p>Tools for developers and programmers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Image Tools</h3>
+                    <p>Image processing and conversion tools</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Tools -->
-    <section class="section bg-light" id="tools">
+    <!-- Working Tools Section -->
+    <section class="tools-container" id="tools">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Tools</h2>
-                <p>Check out some of our most popular tools used by millions of users worldwide.</p>
+                <h2>Working Tools</h2>
+                <p>All tools are fully functional in your browser</p>
             </div>
             
             <div class="tools-grid">
-                <!-- Tool 1 -->
+                <!-- 1. Word Counter -->
                 <div class="tool-card">
-                    <div class="tool-icon bg-primary">
-                        <i class="fas fa-compress"></i>
+                    <div class="tool-icon" style="background: var(--gradient-primary);">
+                        <i class="fas fa-font"></i>
                     </div>
-                    <h4>PDF Compressor</h4>
-                    <p>Reduce PDF file size while maintaining quality. Perfect for email and web uploads.</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">PDF</span>
-                        <span class="tool-tag">Compress</span>
-                        <span class="tool-tag">Optimize</span>
+                    <div class="tool-content">
+                        <h3>Word Counter</h3>
+                        <p>Count words, characters, sentences, and paragraphs</p>
+                        <div class="tool-section">
+                            <textarea id="wordCounterInput" placeholder="Enter your text here...">This is a sample text to demonstrate the word counter tool functionality.</textarea>
+                            <button class="btn btn-block" onclick="countWords()">
+                                <i class="fas fa-calculator"></i> Count Words
+                            </button>
+                            <div class="result-box">
+                                <div id="wordCounterResult">Results will appear here</div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-sm btn-block">Use Tool</button>
                 </div>
-                
-                <!-- Tool 2 -->
+
+                <!-- 2. Case Converter -->
                 <div class="tool-card">
-                    <div class="tool-icon bg-secondary">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #7209b7 0%, #3a0ca3 100%);">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h4>Image Converter</h4>
-                    <p>Convert between JPG, PNG, GIF, WebP, BMP, and other image formats instantly.</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">Image</span>
-                        <span class="tool-tag">Convert</span>
-                        <span class="tool-tag">JPG/PNG</span>
+                    <div class="tool-content">
+                        <h3>Case Converter</h3>
+                        <p>Convert text to different cases: UPPER, lower, Title Case</p>
+                        <div class="tool-section">
+                            <textarea id="caseConverterInput" placeholder="Enter text to convert">convert this text to different cases</textarea>
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
+                                <button class="btn" onclick="convertCase('lower')">lowercase</button>
+                                <button class="btn" onclick="convertCase('title')">Title Case</button>
+                            </div>
+                            <div class="result-box">
+                                <div id="caseConverterResult">Converted text appears here</div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-sm btn-block">Use Tool</button>
                 </div>
-                
-                <!-- Tool 3 -->
+
+                <!-- 3. Base64 Encoder/Decoder -->
                 <div class="tool-card">
-                    <div class="tool-icon bg-success">
-                        <i class="fas fa-cut"></i>
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <i class="fas fa-lock"></i>
                     </div>
-                    <h4>Video Trimmer</h4>
-                    <p>Cut and trim video files online. No software installation required.</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">Video</span>
-                        <span class="tool-tag">Edit</span>
-                        <span class="tool-tag">Trim</span>
+                    <div class="tool-content">
+                        <h3>Base64 Converter</h3>
+                        <p>Encode and decode Base64 strings</p>
+                        <div class="tool-section">
+                            <textarea id="base64Input" placeholder="Enter text to encode or Base64 to decode">Hello World!</textarea>
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <button class="btn" onclick="encodeBase64()">Encode</button>
+                                <button class="btn" onclick="decodeBase64()">Decode</button>
+                            </div>
+                            <div class="result-box">
+                                <div id="base64Result">Results appear here</div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-sm btn-block">Use Tool</button>
                 </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-primary btn-lg">
-                    <i class="fas fa-th-list"></i> View All Tools
-                </button>
+
+                <!-- 4. Number Base Converter -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                        <i class="fas fa-superscript"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Base Converter</h3>
+                        <p>Convert numbers between binary, decimal, and hexadecimal</p>
+                        <div class="tool-section">
+                            <input type="text" id="baseInput" placeholder="Enter number" value="255">
+                            <select id="baseFrom" style="margin-bottom: 10px;">
+                                <option value="10">Decimal</option>
+                                <option value="2">Binary</option>
+                                <option value="16">Hexadecimal</option>
+                            </select>
+                            <select id="baseTo" style="margin-bottom: 10px;">
+                                <option value="2">Binary</option>
+                                <option value="10">Decimal</option>
+                                <option value="16">Hexadecimal</option>
+                            </select>
+                            <button class="btn btn-block" onclick="convertBase()">
+                                <i class="fas fa-exchange-alt"></i> Convert
+                            </button>
+                            <div class="result-box">
+                                <div id="baseResult">Converted value appears here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Password Generator -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Password Generator</h3>
+                        <p>Generate strong random passwords</p>
+                        <div class="tool-section">
+                            <div style="margin-bottom: 10px;">
+                                <label>Length: <span id="lengthValue">12</span></label>
+                                <input type="range" id="passwordLength" min="6" max="32" value="12" oninput="updatePasswordLength()">
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <label><input type="checkbox" id="uppercase" checked> Uppercase (A-Z)</label><br>
+                                <label><input type="checkbox" id="lowercase" checked> Lowercase (a-z)</label><br>
+                                <label><input type="checkbox" id="numbers" checked> Numbers (0-9)</label><br>
+                                <label><input type="checkbox" id="symbols"> Symbols (!@#$%)</label>
+                            </div>
+                            <button class="btn btn-block" onclick="generatePassword()">
+                                <i class="fas fa-sync-alt"></i> Generate Password
+                            </button>
+                            <div class="result-box">
+                                <div id="passwordResult">Click generate to create password</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. QR Code Generator -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>QR Code Generator</h3>
+                        <p>Generate QR codes from text or URLs</p>
+                        <div class="tool-section">
+                            <input type="text" id="qrInput" placeholder="Enter text or URL" value="https://example.com">
+                            <button class="btn btn-block" onclick="generateQRCode()">
+                                <i class="fas fa-qrcode"></i> Generate QR Code
+                            </button>
+                            <div class="result-box" style="text-align: center;">
+                                <div id="qrCodeResult">
+                                    <img id="qrCodeImage" src="" alt="QR Code" style="max-width: 200px; display: none;">
+                                    <div id="qrCodePlaceholder">QR Code will appear here</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Age Calculator -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Age Calculator</h3>
+                        <p>Calculate age from birth date</p>
+                        <div class="tool-section">
+                            <input type="date" id="birthDate" value="1990-01-01">
+                            <button class="btn btn-block" onclick="calculateAge()">
+                                <i class="fas fa-calculator"></i> Calculate Age
+                            </button>
+                            <div class="result-box">
+                                <div id="ageResult">Age will be calculated here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Unit Converter -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Unit Converter</h3>
+                        <p>Convert between different units</p>
+                        <div class="tool-section">
+                            <input type="number" id="unitValue" placeholder="Enter value" value="100">
+                            <select id="unitFrom" style="margin-bottom: 10px;">
+                                <option value="km">Kilometers</option>
+                                <option value="m">Meters</option>
+                                <option value="cm">Centimeters</option>
+                                <option value="mi">Miles</option>
+                                <option value="ft">Feet</option>
+                            </select>
+                            <select id="unitTo" style="margin-bottom: 10px;">
+                                <option value="mi">Miles</option>
+                                <option value="ft">Feet</option>
+                                <option value="km">Kilometers</option>
+                                <option value="m">Meters</option>
+                                <option value="cm">Centimeters</option>
+                            </select>
+                            <button class="btn btn-block" onclick="convertUnits()">
+                                <i class="fas fa-exchange-alt"></i> Convert
+                            </button>
+                            <div class="result-box">
+                                <div id="unitResult">Converted value appears here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Color Converter -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Color Converter</h3>
+                        <p>Convert between HEX, RGB, and HSL color codes</p>
+                        <div class="tool-section">
+                            <input type="text" id="colorInput" placeholder="Enter color (e.g., #4361ee, rgb(67,97,238))" value="#4361ee">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <button class="btn" onclick="convertColor('hex')">To HEX</button>
+                                <button class="btn" onclick="convertColor('rgb')">To RGB</button>
+                                <button class="btn" onclick="convertColor('hsl')">To HSL</button>
+                            </div>
+                            <div class="result-box">
+                                <div id="colorResult">Color conversions appear here</div>
+                                <div id="colorPreview" style="width: 100%; height: 30px; margin-top: 10px; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Timestamp Converter -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Timestamp Converter</h3>
+                        <p>Convert between timestamp and human-readable date</p>
+                        <div class="tool-section">
+                            <input type="number" id="timestampInput" placeholder="Enter timestamp" value="1704067200">
+                            <button class="btn btn-block" onclick="convertTimestamp()">
+                                <i class="fas fa-exchange-alt"></i> Convert to Date
+                            </button>
+                            <div class="result-box">
+                                <div id="timestampResult">Date will appear here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Markdown Preview -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <i class="fas fa-markdown"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Markdown Preview</h3>
+                        <p>Preview Markdown formatting in real-time</p>
+                        <div class="tool-section">
+                            <textarea id="markdownInput" placeholder="Enter Markdown text"># Heading 1
+## Heading 2
+**Bold text**
+*Italic text*
+- List item 1
+- List item 2
+
+[Link](https://example.com)</textarea>
+                            <button class="btn btn-block" onclick="previewMarkdown()">
+                                <i class="fas fa-eye"></i> Preview Markdown
+                            </button>
+                            <div class="result-box">
+                                <div id="markdownResult">Markdown preview appears here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. JSON Formatter -->
+                <div class="tool-card">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>JSON Formatter</h3>
+                        <p>Format and validate JSON data</p>
+                        <div class="tool-section">
+                            <textarea id="jsonInput" placeholder="Enter JSON data">{ "name": "John", "age": 30, "city": "New York" }</textarea>
+                            <button class="btn btn-block" onclick="formatJSON()">
+                                <i class="fas fa-indent"></i> Format JSON
+                            </button>
+                            <div class="result-box">
+                                <pre id="jsonResult">Formatted JSON appears here</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <span>ToolKit</span>
-                    </a>
-                    <p style="color: rgba(255,255,255,0.8); margin-top: 1rem;">
-                        The world's largest collection of free online tools for files, documents, images, and more.
-                    </p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">PDF Tools</a></li>
-                        <li><a href="#">Image Tools</a></li>
-                        <li><a href="#">Video Tools</a></li>
-                        <li><a href="#">Audio Tools</a></li>
-                        <li><a href="#">Document Tools</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Tool Status</a></li>
-                        <li><a href="#">Report Issue</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 ToolKit. All rights reserved. | 5000+ Free Online Tools</p>
+            <div class="footer-content">
+                <h3>ToolKit Pro</h3>
+                <p>All tools are 100% free and work directly in your browser. No installation required.</p>
+                <p>© 2024 ToolKit Pro. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mainNav = document.getElementById('main-nav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Header scroll effect
-        const mainHeader = document.getElementById('main-header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
+        // Word Counter
+        function countWords() {
+            const text = document.getElementById('wordCounterInput').value;
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            const characters = text.length;
+            const charactersNoSpaces = text.replace(/\s/g, '').length;
+            const sentences = text.split(/[.!?]+/).length - 1;
+            const paragraphs = text.split(/\n+/).filter(p => p.trim() !== '').length;
+            
+            document.getElementById('wordCounterResult').innerHTML = `
+                Words: <strong>${words}</strong><br>
+                Characters: <strong>${characters}</strong><br>
+                Characters (no spaces): <strong>${charactersNoSpaces}</strong><br>
+                Sentences: <strong>${sentences}</strong><br>
+                Paragraphs: <strong>${paragraphs}</strong>
+            `;
+        }
+
+        // Case Converter
+        function convertCase(type) {
+            const text = document.getElementById('caseConverterInput').value;
+            let result = '';
+            
+            switch(type) {
+                case 'upper':
+                    result = text.toUpperCase();
+                    break;
+                case 'lower':
+                    result = text.toLowerCase();
+                    break;
+                case 'title':
+                    result = text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+                    break;
             }
-        });
-        
-        // Close mobile menu when clicking a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
+            
+            document.getElementById('caseConverterResult').textContent = result;
+        }
+
+        // Base64 Converter
+        function encodeBase64() {
+            const text = document.getElementById('base64Input').value;
+            const encoded = btoa(unescape(encodeURIComponent(text)));
+            document.getElementById('base64Result').textContent = encoded;
+        }
+
+        function decodeBase64() {
+            const text = document.getElementById('base64Input').value;
+            try {
+                const decoded = decodeURIComponent(escape(atob(text)));
+                document.getElementById('base64Result').textContent = decoded;
+            } catch (e) {
+                document.getElementById('base64Result').textContent = 'Invalid Base64 string!';
+            }
+        }
+
+        // Number Base Converter
+        function convertBase() {
+            const input = document.getElementById('baseInput').value;
+            const fromBase = parseInt(document.getElementById('baseFrom').value);
+            const toBase = parseInt(document.getElementById('baseTo').value);
+            
+            try {
+                // Convert from source base to decimal first
+                const decimal = parseInt(input, fromBase);
+                if (isNaN(decimal)) throw new Error('Invalid input');
+                
+                // Convert from decimal to target base
+                let result;
+                if (toBase === 10) {
+                    result = decimal.toString();
+                } else if (toBase === 2) {
+                    result = decimal.toString(2);
+                } else if (toBase === 16) {
+                    result = decimal.toString(16).toUpperCase();
                 }
-            });
-        }, observerOptions);
-        
-        // Observe elements with animation classes
-        document.querySelectorAll('.category-card, .tool-card').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Tool search functionality
-        document.querySelectorAll('.btn-outline').forEach(btn => {
-            if (btn.textContent.includes('Search')) {
-                btn.addEventListener('click', () => {
-                    const searchInput = document.createElement('input');
-                    searchInput.type = 'text';
-                    searchInput.placeholder = 'Search for tools...';
-                    searchInput.style.cssText = `
-                        position: fixed;
-                        top: 100px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        padding: 1rem 1.5rem;
-                        border-radius: 50px;
-                        border: 2px solid var(--primary-color);
-                        box-shadow: var(--shadow-xl);
-                        width: 90%;
-                        max-width: 500px;
-                        z-index: 1001;
-                        font-size: 1rem;
-                        outline: none;
-                    `;
-                    
-                    document.body.appendChild(searchInput);
-                    searchInput.focus();
-                    
-                    // Remove on escape or click outside
-                    const removeSearch = (e) => {
-                        if (e.key === 'Escape' || (!e.target.isEqualNode(searchInput) && e.type === 'click')) {
-                            searchInput.remove();
-                            document.removeEventListener('keydown', removeSearch);
-                            document.removeEventListener('click', removeSearch);
-                        }
-                    };
-                    
-                    document.addEventListener('keydown', removeSearch);
-                    setTimeout(() => document.addEventListener('click', removeSearch), 100);
-                });
+                
+                document.getElementById('baseResult').textContent = result;
+            } catch (e) {
+                document.getElementById('baseResult').textContent = 'Invalid input for selected base!';
             }
-        });
+        }
+
+        // Password Generator
+        function updatePasswordLength() {
+            const length = document.getElementById('passwordLength').value;
+            document.getElementById('lengthValue').textContent = length;
+        }
+
+        function generatePassword() {
+            const length = parseInt(document.getElementById('passwordLength').value);
+            const uppercase = document.getElementById('uppercase').checked;
+            const lowercase = document.getElementById('lowercase').checked;
+            const numbers = document.getElementById('numbers').checked;
+            const symbols = document.getElementById('symbols').checked;
+            
+            let chars = '';
+            if (uppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) chars += 'abcdefghijklmnopqrstuvwxyz';
+            if (numbers) chars += '0123456789';
+            if (symbols) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (chars === '') {
+                document.getElementById('passwordResult').textContent = 'Please select at least one character type!';
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            document.getElementById('passwordResult').textContent = password;
+        }
+
+        // QR Code Generator (using QRServer API)
+        function generateQRCode() {
+            const text = encodeURIComponent(document.getElementById('qrInput').value);
+            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${text}`;
+            
+            const img = document.getElementById('qrCodeImage');
+            img.src = qrCodeUrl;
+            img.style.display = 'block';
+            document.getElementById('qrCodePlaceholder').style.display = 'none';
+        }
+
+        // Age Calculator
+        function calculateAge() {
+            const birthDate = new Date(document.getElementById('birthDate').value);
+            const today = new Date();
+            
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            const months = (today.getFullYear() - birthDate.getFullYear()) * 12 + 
+                          (today.getMonth() - birthDate.getMonth());
+            
+            document.getElementById('ageResult').innerHTML = `
+                Age: <strong>${age}</strong> years<br>
+                Age in months: <strong>${months}</strong><br>
+                Date of birth: <strong>${birthDate.toDateString()}</strong>
+            `;
+        }
+
+        // Unit Converter
+        function convertUnits() {
+            const value = parseFloat(document.getElementById('unitValue').value);
+            const from = document.getElementById('unitFrom').value;
+            const to = document.getElementById('unitTo').value;
+            
+            // Conversion factors to meters
+            const factors = {
+                km: 1000,
+                m: 1,
+                cm: 0.01,
+                mi: 1609.34,
+                ft: 0.3048
+            };
+            
+            // Convert to meters first, then to target unit
+            const valueInMeters = value * factors[from];
+            const result = valueInMeters / factors[to];
+            
+            document.getElementById('unitResult').textContent = 
+                `${value} ${from} = ${result.toFixed(4)} ${to}`;
+        }
+
+        // Color Converter
+        function convertColor(toFormat) {
+            const input = document.getElementById('colorInput').value.trim();
+            let hex, rgb, hsl;
+            
+            // Parse input
+            if (input.startsWith('#')) {
+                hex = input;
+                rgb = hexToRgb(hex);
+            } else if (input.startsWith('rgb')) {
+                const match = input.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+                if (match) {
+                    rgb = { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+                    hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+                }
+            }
+            
+            if (rgb) {
+                hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+            }
+            
+            let result = '';
+            switch(toFormat) {
+                case 'hex':
+                    result = hex || 'Invalid color';
+                    break;
+                case 'rgb':
+                    result = rgb ? `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` : 'Invalid color';
+                    break;
+                case 'hsl':
+                    result = hsl ? `hsl(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%)` : 'Invalid color';
+                    break;
+            }
+            
+            document.getElementById('colorResult').textContent = result;
+            document.getElementById('colorPreview').style.backgroundColor = hex || rgb ? 
+                `rgb(${rgb?.r || 0}, ${rgb?.g || 0}, ${rgb?.b || 0})` : '#ccc';
+        }
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch(max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+
+            return {
+                h: h * 360,
+                s: s * 100,
+                l: l * 100
+            };
+        }
+
+        // Timestamp Converter
+        function convertTimestamp() {
+            const timestamp = parseInt(document.getElementById('timestampInput').value) * 1000;
+            const date = new Date(timestamp);
+            
+            if (isNaN(date.getTime())) {
+                document.getElementById('timestampResult').textContent = 'Invalid timestamp!';
+                return;
+            }
+            
+            document.getElementById('timestampResult').textContent = 
+                date.toLocaleString() + ' (UTC: ' + date.toUTCString() + ')';
+        }
+
+        // Markdown Preview (simplified)
+        function previewMarkdown() {
+            const markdown = document.getElementById('markdownInput').value;
+            let html = markdown
+                .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/^- (.*$)/gm, '<li>$1</li>')
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+                .replace(/\n/g, '<br>');
+            
+            // Wrap list items in ul
+            html = html.replace(/(<li>.*?<\/li>)+/g, match => `<ul>${match}</ul>`);
+            
+            document.getElementById('markdownResult').innerHTML = html;
+        }
+
+        // JSON Formatter
+        function formatJSON() {
+            const input = document.getElementById('jsonInput').value;
+            try {
+                const parsed = JSON.parse(input);
+                const formatted = JSON.stringify(parsed, null, 2);
+                document.getElementById('jsonResult').textContent = formatted;
+            } catch (e) {
+                document.getElementById('jsonResult').textContent = 'Invalid JSON: ' + e.message;
+            }
+        }
+
+        // Initialize some tools on page load
+        window.onload = function() {
+            countWords();
+            convertCase('title');
+            encodeBase64();
+            convertBase();
+            updatePasswordLength();
+            generatePassword();
+            calculateAge();
+            convertUnits();
+            convertColor('hex');
+            convertTimestamp();
+            previewMarkdown();
+            formatJSON();
+        };
     </script>
 </body>
 </html>
